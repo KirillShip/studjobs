@@ -35,13 +35,16 @@ $role = $_SESSION['role'];
         <h1 class="text-center mb-4">Добро пожаловать, студент!</h1>
         <p class="text-center">Здесь вы можете просматривать вакансии, подавать заявки и отслеживать их статус.</p>
         <div class="text-center">
-            <a href="jobs.html" class="btn btn-primary">Посмотреть вакансии</a>
+            <a href="jobs.php" class="btn btn-primary">Посмотреть вакансии</a>
         </div>
         <br>
         <div class="text-center">
-            <a href="resume.html" class="btn btn-primary">Составить резюме</a>
+            <a href="resume.php" class="btn btn-primary">Составить резюме</a>
         </div>
     </div>
 <?php endif; ?>
+<div class="text-center mt-4">
+    <a href="logout.php" class="btn btn-danger">Выйти</a>
+</div>
 </body>
 </html>
