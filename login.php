@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         session_start();
         $_SESSION['user'] = $id;
         $_SESSION['role'] = 'admin';
-        header("Location: http://dolg/main.html");
+        header("Location: http://dolg/main.php");
         exit();
     }
 
@@ -38,7 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         session_start();
         $_SESSION['user'] = $id;
         $_SESSION['role'] = 'student';
-        header("Location: http://dolg/main.html");
+        header("Location: http://dolg/main.php");
         exit();
     }
 
