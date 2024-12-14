@@ -43,6 +43,19 @@ $role = $_SESSION['role'];
         </div>
     </div>
 <?php endif; ?>
+<?php if ($role === 'customer'): ?>
+    <div class="container py-5">
+        <h1 class="text-center mb-4">Добро пожаловать!</h1>
+        <p class="text-center">Здесь вы можете добавлять вакансии, просматривать и принимать заявки.</p>
+        <div class="text-center">
+            <a href="jobs.php" class="btn btn-primary">Добавить вакансию</a>
+        </div>
+        <br>
+        <div class="text-center">
+            <a href="requests.php" class="btn btn-primary">Посмотреть заявки</a>
+        </div>
+    </div>
+<?php endif; ?>
 <div class="text-center mt-4">
     <a href="logout.php" class="btn btn-danger">Выйти</a>
 </div>
