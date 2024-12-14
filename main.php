@@ -48,7 +48,7 @@ $role = $_SESSION['role'];
         <h1 class="text-center mb-4">Добро пожаловать!</h1>
         <p class="text-center">Здесь вы можете добавлять вакансии, просматривать и принимать заявки.</p>
         <div class="text-center">
-            <a href="jobs.php" class="btn btn-primary">Добавить вакансию</a>
+            <a href="add_jobs.php" class="btn btn-primary">Добавить вакансию</a>
         </div>
         <br>
         <div class="text-center">
