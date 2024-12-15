@@ -25,7 +25,8 @@ $job_category_id = isset($_GET['job_category_id']) ? $_GET['job_category_id'] : 
 $sql = "SELECT Jobs.id, Jobs.title, Jobs.organization, Jobs.description, Jobs.skills, JobTypes.name AS type_name, JobCategories.name AS category_name 
         FROM Jobs 
         LEFT JOIN JobTypes ON Jobs.job_type_id = JobTypes.id 
-        LEFT JOIN JobCategories ON Jobs.job_category_id = JobCategories.id";
+        LEFT JOIN JobCategories ON Jobs.job_category_id = JobCategories.id
+        WHERE 1=1";
 
 if ($job_type_id) {
     $sql .= " AND Jobs.job_type_id = " . intval($job_type_id);
