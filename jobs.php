@@ -3,8 +3,12 @@ session_start();
 require_once 'error_handler.php';
 
 if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'student') {
-    header("Location: index.html");
-    exit();
+    handle_error(
+        401,
+        "Unauthorized: User is not authenticated or doesn't have the required role.",
+        "У вас нет доступа к этой странице. Пожалуйста, войдите как студент.",
+        ["required_role" => "student"]
+    );
 }
 
 $servername = "localhost";
