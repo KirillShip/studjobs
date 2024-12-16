@@ -1,12 +1,17 @@
 <?php
 session_start();
+require_once 'error_handler.php';
 
 error_reporting(0);
 ini_set('display_errors', 0);
 
 if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'student') {
-    header("Location: index.html");
-    exit();
+    handle_error(
+        401,
+        "Unauthorized: User is not authenticated or doesn't have the required role.",
+        "У вас нет доступа к этой странице. Пожалуйста, войдите как студент.",
+        ["required_role" => "student"]
+    );
 }
 
 $servername = "localhost";
@@ -17,7 +22,12 @@ $dbname = "studjobs";
 $conn = new mysqli($servername, $username, $password, $dbname);
 
 if ($conn->connect_error) {
-    die("Ошибка подключения: " . $conn->connect_error);
+    handle_error(
+        500,
+        "Internal Server Error: Database query execution failed.",
+        "Произошла ошибка на сервере. Попробуйте позже.",
+        ["error_details" => $conn->connect_error]
+    );
 }
 
 $student_id = $_SESSION['user'];

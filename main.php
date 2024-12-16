@@ -1,9 +1,14 @@
 <?php
 session_start();
+require_once 'error_handler.php';
 
 if (!isset($_SESSION['role'])) {
-    header("Location: login.html");
-    exit();
+    handle_error(
+        404,
+        "Not Found: Role does not exist.",
+        "Пожалуйста авторизируйтесь",
+        ["role" => isset($_SESSION['role'])]
+    );
 }
 
 $role = $_SESSION['role'];

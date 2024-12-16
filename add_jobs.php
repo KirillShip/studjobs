@@ -2,8 +2,12 @@
 session_start();
 
 if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'customer') {
-    header("Location: index.html");
-    exit();
+    handle_error(
+        401,
+        "Unauthorized: User is not authenticated or doesn't have the required role.",
+        "У вас нет доступа к этой странице. Пожалуйста, войдите как работодатель.",
+        ["required_role" => "customer"]
+    );
 }
 
 $servername = "localhost";

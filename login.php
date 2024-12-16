@@ -1,5 +1,7 @@
 <?php
 
+require_once 'error_handler.php';
+
 $servername = "localhost";
 $login = "root";
 $password = "root";
@@ -8,7 +10,12 @@ $dbname = "studjobs";
 $conn = new mysqli($servername, $login, $password, $dbname);
 
 if ($conn->connect_error) {
-    die("Ошибка подключения: " . $conn->connect_error);
+    handle_error(
+        500,
+        "Internal Server Error: Database query execution failed.",
+        "Произошла ошибка на сервере. Попробуйте позже.",
+        ["error_details" => $conn->connect_error]
+    );
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
